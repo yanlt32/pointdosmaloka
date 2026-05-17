@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html class="dark" lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Point dos Malokas — Açaí, Hambúrguer & Pastel · São Paulo</title>
+  <meta name="description" content="Point dos Malokas — Açaí, hambúrguer artesanal e pastel de feira em São Paulo. Venha provar nossos combos, açaí trufado e muito conteúdo no Instagram." />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#e9c400" />
+  <link rel="canonical" href="https://pointdosmalokas.com/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Point dos Malokas — Açaí, Hambúrguer & Pastel · São Paulo" />
+  <meta property="og:description" content="Açaí trufado, hambúrguer artesanal e pastéis de feira — Point dos Malokas, Rua Esperantinópolis 346, SP." />
+  <meta property="og:url" content="https://pointdosmalokas.com/" />
+  <meta property="og:image" content="/image.png" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Point dos Malokas — Açaí, Hambúrguer & Pastel" />
+  <meta name="twitter:description" content="Açaí trufado, hambúrguer artesanal e pastéis de feira em São Paulo. Venha pro Point!" />
+  <meta name="twitter:image" content="/image.png" />
+
+  <!-- Favicon / Touch icon (use relative path for local preview) -->
+  <link rel="shortcut icon" href="favicon.svg" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="favicon.svg" />
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:wght@400;700&family=Work+Sans:wght@400;500&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --gold:#e9c400; --gold-bright:#ffd700; --gold-pale:#fff6df;
+  --gold-fixed:#ffe16d; --black:#0e0e0e; --black2:#131313;
+  --surface:#1c1b1b; --surface2:#20201f; --surface3:#252525;
+  --surface4:#2a2a2a; --surface5:#353535; --gray:#474747;
+  --gray-light:#999077; --on-surface:#e5e2e1; --on-dim:#d0c6ab;
+  --gold-glow:0 0 12px rgba(233,196,0,.55),0 0 32px rgba(233,196,0,.22);
+  --gold-text:0 0 8px rgba(233,196,0,.6),0 0 20px rgba(233,196,0,.3);
+  --offset:4px 4px 0 #000;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--black2);color:var(--on-surface);font-family:'Work Sans',sans-serif;overflow-x:hidden;cursor:none;}
+.material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24;}
+
+/* CURSOR */
+#cursor{position:fixed;width:12px;height:12px;background:var(--gold);border-radius:50%;pointer-events:none;z-index:99999;transform:translate(-50%,-50%);transition:transform .1s,width .2s,height .2s;box-shadow:var(--gold-glow);}
+#cursor-ring{position:fixed;width:36px;height:36px;border:1.5px solid var(--gold);border-radius:50%;pointer-events:none;z-index:99998;transform:translate(-50%,-50%);transition:transform .12s ease-out,width .2s,height .2s,opacity .2s;opacity:.5;}
+
+/* SPLASH */
+#splash{position:fixed;inset:0;background:#000;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;}
+#splash-bg{position:absolute;inset:0;background:radial-gradient(ellipse at center,#1a1200 0%,#000 70%);}
+#splash::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.3) 2px,rgba(0,0,0,.3) 4px);pointer-events:none;z-index:1;animation:scanMove 8s linear infinite;}
+@keyframes scanMove{from{background-position:0 0}to{background-position:0 100px}}
+#splash-content{position:relative;z-index:2;text-align:center;display:flex;flex-direction:column;align-items:center;gap:18px;}
+.splash-tag{font-family:'Space Mono',monospace;font-size:clamp(9px,2vw,11px);letter-spacing:.4em;color:var(--gold);opacity:0;animation:fadeInUp .5s .8s forwards;text-transform:uppercase;}
+.splash-logo{font-family:'Anton',sans-serif;font-size:clamp(46px,11vw,108px);line-height:.9;color:var(--on-surface);letter-spacing:.05em;opacity:0;animation:glitchIn .6s 1.2s forwards;position:relative;text-shadow:var(--offset);font-style:italic;}
+.splash-logo::before,.splash-logo::after{content:'POINT DOS MALOKAS';position:absolute;inset:0;opacity:0;white-space:pre;}
+.splash-logo::before{color:var(--gold-bright);animation:glitch1 3s 2s infinite;}
+.splash-logo::after{color:rgba(255,215,0,.15);animation:glitch2 3s 2s infinite;}
+.splash-sub2{font-family:'Space Mono',monospace;font-size:clamp(10px,2vw,13px);letter-spacing:.2em;color:var(--gray-light);opacity:0;animation:fadeInUp .5s 1.8s forwards;text-transform:uppercase;}
+.splash-addr{font-family:'Space Mono',monospace;font-size:clamp(8px,1.5vw,10px);letter-spacing:.2em;color:rgba(233,196,0,.55);opacity:0;animation:fadeInUp .4s 2s forwards;text-transform:uppercase;}
+@keyframes glitchIn{0%{opacity:0;transform:skewX(10deg) scale(.95);filter:blur(8px)}60%{opacity:1;transform:skewX(-2deg) scale(1.02);filter:blur(0)}100%{opacity:1;transform:none}}
+@keyframes glitch1{0%,90%,100%{opacity:0;transform:none}92%{opacity:.8;transform:translate(-4px,2px);clip-path:polygon(0 30%,100% 30%,100% 50%,0 50%)}94%{opacity:.5;transform:translate(4px,-2px);clip-path:polygon(0 60%,100% 60%,100% 75%,0 75%)}}
+@keyframes glitch2{0%,88%,100%{opacity:0;transform:none}90%{opacity:.4;transform:translate(5px,0);clip-path:polygon(0 10%,100% 10%,100% 40%,0 40%)}}
+.smoke-wrap{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:1;}
+.smoke{position:absolute;bottom:-100px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(233,196,0,.06) 0%,transparent 70%);animation:smokeRise 6s ease-out infinite;filter:blur(30px);}
+.smoke:nth-child(1){left:10%;animation-delay:0s}.smoke:nth-child(2){left:40%;width:500px;height:500px;animation-delay:2s}.smoke:nth-child(3){left:65%;animation-delay:4s}
+@keyframes smokeRise{0%{transform:translateY(0) scale(.5);opacity:0}20%{opacity:1}100%{transform:translateY(-100vh) scale(2);opacity:0}}
+.loader-wrap{width:clamp(200px,50vw,360px);opacity:0;animation:fadeInUp .4s 2.2s forwards;}
+.loader-label{display:flex;justify-content:space-between;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.2em;color:var(--gray-light);margin-bottom:8px;text-transform:uppercase;}
+.loader-bar{height:2px;background:var(--surface5);position:relative;overflow:hidden;}
+.loader-fill{position:absolute;top:0;left:0;height:100%;background:linear-gradient(90deg,var(--gold),var(--gold-bright),var(--gold-pale));animation:load 2.5s 2.3s cubic-bezier(.4,0,.2,1) forwards;width:0%;box-shadow:0 0 10px var(--gold);}
+@keyframes load{to{width:100%}}
+.loader-pct{font-family:'Space Mono',monospace;font-size:11px;color:var(--gold);}
+#splash.exit{animation:splashExit .8s forwards;}
+@keyframes splashExit{0%{opacity:1;transform:none}50%{opacity:1;transform:scaleY(1.02)}100%{opacity:0;transform:scaleY(.95);pointer-events:none}}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+/* PARTICLES */
+#particles-canvas{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.35;}
+
+/* NAV */
+nav#nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:18px 40px;display:flex;align-items:center;justify-content:space-between;background:linear-gradient(to bottom,rgba(0,0,0,.92),transparent);backdrop-filter:blur(2px);border-bottom:2px solid rgba(233,196,0,.08);transition:padding .3s,background .3s;}
+nav#nav.scrolled{padding:12px 40px;background:rgba(14,14,14,.97);border-bottom:2px solid rgba(233,196,0,.18);backdrop-filter:blur(12px);}
+.nav-logo{font-family:'Anton',sans-serif;font-size:22px;letter-spacing:.08em;color:var(--gold-fixed);text-decoration:none;text-shadow:var(--offset);font-style:italic;}
+.nav-logo span{color:var(--gold-bright);}
+.nav-links{display:flex;gap:32px;list-style:none;}
+.nav-links a{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.2em;color:var(--gray-light);text-decoration:none;text-transform:uppercase;transition:color .2s;position:relative;}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--gold);transition:width .3s;}
+.nav-links a:hover{color:var(--on-surface);}
+.nav-links a:hover::after{width:100%;}
+.nav-ig{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.15em;color:var(--on-surface);text-decoration:none;border:1px solid var(--gold);padding:8px 16px;text-transform:uppercase;transition:background .2s,box-shadow .2s;}
+.nav-ig:hover{background:var(--gold);color:var(--black);box-shadow:var(--gold-glow);}
+.nav-ham{display:none;cursor:pointer;flex-direction:column;gap:5px;}
+.nav-ham span{width:26px;height:2px;background:var(--on-surface);}
+#mobile-nav{position:fixed;inset:0;background:rgba(0,0,0,.98);z-index:5000;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:30px;transform:translateX(100%);transition:transform .4s ease;}
+#mobile-nav.open{transform:none;}
+#mobile-nav a{font-family:'Anton',sans-serif;font-size:48px;letter-spacing:.08em;color:var(--on-surface);text-decoration:none;transition:color .2s;font-style:italic;}
+#mobile-nav a:hover{color:var(--gold);}
+#close-nav{position:absolute;top:24px;right:24px;font-size:34px;color:var(--on-surface);cursor:pointer;background:none;border:none;font-family:'Anton',sans-serif;}
+
+/* TICKER */
+.ticker-wrap{overflow:hidden;background:linear-gradient(90deg,var(--gold),var(--gold-bright),var(--gold));padding:13px 0;position:relative;z-index:2;}
+.ticker-track{display:flex;animation:ticker 22s linear infinite;white-space:nowrap;}
+.ticker-item{display:inline-flex;align-items:center;gap:28px;padding:0 28px;font-family:'Anton',sans-serif;font-size:17px;letter-spacing:.2em;color:rgba(0,0,0,.82);font-style:italic;}
+.ticker-dot{width:5px;height:5px;background:rgba(0,0,0,.35);border-radius:50%;}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* SHARED */
+section{position:relative;z-index:1;}
+.section-inner{max-width:1280px;margin:0 auto;padding:0 6vw;}
+.section-label{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.4em;color:var(--gold);text-transform:uppercase;display:flex;align-items:center;gap:14px;margin-bottom:14px;}
+.section-label::after{content:'';flex:1;max-width:50px;height:1px;background:var(--gold);opacity:.4;}
+.section-title{font-family:'Anton',sans-serif;font-size:clamp(36px,7vw,76px);line-height:.95;letter-spacing:.02em;color:var(--on-surface);margin-bottom:14px;font-style:italic;}
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .8s ease,transform .8s ease;}
+.reveal.visible{opacity:1;transform:none;}
+.reveal-left{transform:translateX(-40px) !important;}
+.reveal-right{transform:translateX(40px) !important;}
+.reveal-left.visible,.reveal-right.visible{transform:none !important;}
+
+/* HERO */
+#hero{position:relative;height:100vh;min-height:600px;display:flex;align-items:flex-end;justify-content:flex-start;overflow:hidden;}
+.hero-bg-img{position:absolute;inset:0;z-index:0;}
+.hero-bg-img img{width:100%;height:100%;object-fit:cover;}
+.hero-bg-img::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,var(--black2) 0%,rgba(14,14,14,.6) 45%,transparent 100%);}
+.hero-grid{position:absolute;inset:0;z-index:1;background-image:linear-gradient(rgba(233,196,0,.015) 1px,transparent 1px),linear-gradient(90deg,rgba(233,196,0,.015) 1px,transparent 1px);background-size:55px 55px;}
+.hero-content{position:relative;z-index:2;padding:0 6vw 60px;max-width:800px;}
+.hero-eyebrow{font-family:'Space Mono',monospace;font-size:clamp(10px,1.5vw,12px);letter-spacing:.4em;color:var(--gold);text-transform:uppercase;margin-bottom:16px;opacity:0;transform:translateY(20px);animation:revealUp .7s .2s forwards;display:flex;align-items:center;gap:14px;}
+.hero-eyebrow::before{content:'';display:block;width:32px;height:1px;background:var(--gold);box-shadow:var(--gold-glow);}
+.hero-title{font-family:'Anton',sans-serif;font-size:clamp(52px,10vw,128px);line-height:.88;letter-spacing:.02em;color:var(--on-surface);margin-bottom:20px;opacity:0;transform:translateY(30px);animation:revealUp .8s .4s forwards;font-style:italic;text-shadow:4px 4px 0 rgba(0,0,0,.8);}
+.hero-title .gold{color:var(--gold-bright);text-shadow:var(--gold-text),4px 4px 0 rgba(0,0,0,1);}
+.hero-desc{font-size:clamp(14px,2.2vw,18px);font-weight:400;letter-spacing:.04em;color:var(--on-dim);max-width:490px;line-height:1.7;margin-bottom:12px;opacity:0;transform:translateY(20px);animation:revealUp .7s .5s forwards;}
+.hero-address{font-family:'Space Mono',monospace;font-size:clamp(9px,1.3vw,10px);letter-spacing:.2em;color:rgba(233,196,0,.65);text-transform:uppercase;margin-bottom:30px;opacity:0;transform:translateY(20px);animation:revealUp .7s .6s forwards;display:flex;align-items:center;gap:8px;}
+.hero-address svg{width:11px;height:11px;fill:var(--gold);flex-shrink:0;}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap;opacity:0;transform:translateY(20px);animation:revealUp .7s .75s forwards;}
+.btn-primary{display:inline-flex;align-items:center;gap:10px;padding:14px 30px;background:var(--gold-bright);color:var(--black);text-decoration:none;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:14px;letter-spacing:.15em;text-transform:uppercase;box-shadow:var(--offset);position:relative;overflow:hidden;transition:transform .2s,box-shadow .2s;}
+.btn-primary::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.25),transparent);transform:translateX(-100%);transition:transform .4s;}
+.btn-primary:hover::before{transform:translateX(100%);}
+.btn-primary:hover{transform:translate(2px,2px);box-shadow:2px 2px 0 #000;}
+.btn-secondary{display:inline-flex;align-items:center;gap:10px;padding:14px 30px;border:1px solid rgba(233,196,0,.35);color:var(--on-dim);text-decoration:none;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:14px;letter-spacing:.15em;text-transform:uppercase;transition:border-color .2s,color .2s,transform .2s;}
+.btn-secondary:hover{border-color:var(--gold);color:var(--on-surface);transform:translateY(-2px);}
+.hero-scroll{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;opacity:0;animation:fadeInUp .5s 1.2s forwards;}
+.hero-scroll span{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.3em;color:var(--gray-light);text-transform:uppercase;}
+.scroll-line{width:1px;height:44px;background:linear-gradient(to bottom,transparent,var(--gold),transparent);animation:scrollPulse 2s ease-in-out infinite;}
+@keyframes scrollPulse{0%,100%{transform:scaleY(1);opacity:.5}50%{transform:scaleY(1.3);opacity:1}}
+@keyframes revealUp{to{opacity:1;transform:translateY(0)}}
+
+/* SOBRE */
+#sobre{padding:110px 0;background:linear-gradient(to bottom,var(--black2),var(--surface));}
+.sobre-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center;margin-top:50px;}
+.sobre-visual{position:relative;}
+.sobre-accent{position:absolute;top:-12px;left:-12px;width:100%;height:100%;border:1px solid rgba(233,196,0,.18);pointer-events:none;}
+.sobre-box{width:100%;aspect-ratio:4/5;background:var(--surface2);position:relative;overflow:hidden;}
+.sobre-box::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(233,196,0,.07) 0%,transparent 50%),repeating-linear-gradient(45deg,transparent,transparent 20px,rgba(233,196,0,.02) 20px,rgba(233,196,0,.02) 21px);}
+.sobre-box-inner{display:flex;flex-direction:column;justify-content:flex-end;height:100%;padding:36px;}
+.sobre-box-big{font-family:'Anton',sans-serif;font-size:100px;line-height:1;color:rgba(233,196,0,.07);user-select:none;font-style:italic;}
+.sobre-corner{position:absolute;top:18px;right:18px;width:36px;height:36px;border-top:2px solid var(--gold);border-right:2px solid var(--gold);}
+.sobre-corner2{position:absolute;bottom:18px;left:18px;width:36px;height:36px;border-bottom:2px solid var(--gold);border-left:2px solid var(--gold);}
+.sobre-text p{font-size:clamp(14px,1.9vw,17px);font-weight:400;line-height:1.8;color:var(--on-dim);margin-bottom:16px;letter-spacing:.03em;}
+.sobre-text p strong{color:var(--on-surface);font-weight:700;}
+.cards-row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:34px;}
+.card{background:var(--surface2);padding:20px 16px;border-left:2px solid transparent;transition:border-color .3s,background .3s,transform .3s;position:relative;overflow:hidden;}
+.card::before{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--gold);transition:width .4s;}
+.card:hover{border-color:var(--gold);background:var(--surface3);transform:translateY(-4px);box-shadow:0 20px 40px rgba(0,0,0,.4),0 0 20px rgba(233,196,0,.06);}
+.card:hover::before{width:100%;}
+.card-num{font-family:'Anton',sans-serif;font-size:36px;color:var(--gold);line-height:1;margin-bottom:5px;text-shadow:var(--gold-text);}
+.card-title{font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px;color:var(--on-surface);}
+.card-text{font-size:12px;color:var(--gray-light);line-height:1.5;letter-spacing:.03em;}
+
+/* CARDÁPIO */
+#cardapio{padding:110px 0;background:var(--black2);}
+.menu-tabs{display:flex;gap:0;margin-top:46px;margin-bottom:38px;border-bottom:1px solid rgba(255,255,255,.06);overflow-x:auto;}
+.menu-tab{font-family:'Anton',sans-serif;font-size:20px;letter-spacing:.1em;color:var(--gray-light);padding:13px 26px;cursor:pointer;border-bottom:2px solid transparent;transition:color .2s,border-color .2s;text-transform:uppercase;white-space:nowrap;flex-shrink:0;font-style:italic;}
+.menu-tab.active{color:var(--on-surface);border-color:var(--gold);}
+.menu-tab:hover{color:var(--on-dim);}
+.menu-panel{display:none;}
+.menu-panel.active{display:block;}
+
+/* AÇAÍ */
+.acai-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
+.acai-card{background:var(--surface2);padding:26px;position:relative;overflow:hidden;border:1px solid rgba(233,196,0,.08);}
+.acai-card::before{content:'';position:absolute;top:0;right:0;width:80px;height:80px;background:radial-gradient(circle,rgba(233,196,0,.08),transparent 70%);}
+.acai-name{font-family:'Anton',sans-serif;font-size:26px;letter-spacing:.05em;color:var(--on-surface);margin-bottom:14px;font-style:italic;}
+.acai-name span{color:var(--gold);}
+.acai-sub{font-size:12px;color:var(--gray-light);letter-spacing:.08em;display:block;margin-top:-10px;margin-bottom:14px;}
+.price-row{display:flex;gap:10px;flex-wrap:wrap;}
+.price-pill{display:flex;flex-direction:column;align-items:center;background:var(--surface3);padding:9px 13px;border:1px solid rgba(233,196,0,.18);min-width:66px;}
+.price-ml{font-family:'Space Mono',monospace;font-size:8px;letter-spacing:.15em;color:var(--gold);text-transform:uppercase;margin-bottom:3px;}
+.price-val{font-family:'Anton',sans-serif;font-size:20px;color:var(--on-surface);line-height:1;}
+.vitaminas{margin-top:26px;background:var(--surface2);padding:22px;border:1px solid rgba(233,196,0,.08);}
+.vitaminas h4{font-family:'Anton',sans-serif;font-size:20px;letter-spacing:.05em;color:var(--on-surface);margin-bottom:14px;font-style:italic;}
+.vitaminas h4 span{color:var(--gold);}
+.vit-row{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.04);}
+.vit-row:last-child{border-bottom:none;}
+.vit-name{font-size:14px;color:var(--on-dim);letter-spacing:.05em;}
+.vit-price{font-family:'Anton',sans-serif;font-size:20px;color:var(--gold);}
+.opcionais{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:26px;}
+.opc-group{background:var(--surface2);padding:16px;border:1px solid rgba(233,196,0,.06);}
+.opc-title{font-family:'Space Mono',monospace;font-size:8px;letter-spacing:.25em;color:var(--gold);text-transform:uppercase;margin-bottom:10px;padding-bottom:7px;border-bottom:1px solid rgba(233,196,0,.2);}
+.opc-item{font-size:12px;color:var(--gray-light);line-height:1.9;letter-spacing:.03em;}
+.extras{margin-top:18px;background:var(--surface2);padding:20px;border:1px solid rgba(233,196,0,.06);}
+.extras h4{font-family:'Anton',sans-serif;font-size:18px;letter-spacing:.05em;color:var(--on-surface);margin-bottom:12px;font-style:italic;}
+.extra-row{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.04);}
+.extra-row:last-child{border-bottom:none;}
+.extra-name{font-size:13px;color:var(--on-dim);letter-spacing:.04em;}
+.extra-price{font-family:'Anton',sans-serif;font-size:18px;color:var(--gold-bright);text-shadow:var(--gold-text);}
+
+/* HAMBÚRGUER */
+.burger-header{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.2em;color:var(--gold);text-transform:uppercase;margin-bottom:22px;padding:10px 14px;background:rgba(233,196,0,.05);border-left:2px solid var(--gold);}
+.burger-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.burger-item{background:var(--surface2);padding:18px 20px;display:flex;justify-content:space-between;align-items:flex-start;gap:14px;border-left:2px solid transparent;transition:border-color .25s,transform .25s,background .25s;}
+.burger-item:hover{border-color:var(--gold);transform:translateX(4px);background:var(--surface3);}
+.burger-info{flex:1;}
+.burger-name{font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:700;letter-spacing:.06em;color:var(--on-surface);text-transform:uppercase;margin-bottom:4px;}
+.burger-desc{font-size:11px;color:var(--gray-light);line-height:1.5;letter-spacing:.03em;}
+.burger-price{font-family:'Anton',sans-serif;font-size:24px;color:var(--gold);text-shadow:var(--gold-text);white-space:nowrap;}
+.burger-destaque{border:1px solid var(--gold)!important;background:var(--surface3)!important;box-shadow:0 0 20px rgba(233,196,0,.08);}
+.burger-destaque .burger-name{color:var(--gold);}
+.burger-destaque .burger-price{font-size:28px;}
+
+/* PASTEL */
+.pastel-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+.pastel-category{font-family:'Anton',sans-serif;font-size:20px;letter-spacing:.06em;color:var(--on-surface);margin-bottom:12px;padding:10px 14px;background:var(--surface2);display:flex;justify-content:space-between;align-items:center;border-left:2px solid var(--gold);font-style:italic;}
+.pastel-price-tag{color:var(--gold);font-size:22px;}
+.pastel-list{display:flex;flex-direction:column;gap:0;}
+.pastel-item{font-size:13px;color:var(--on-dim);letter-spacing:.05em;padding:5px 14px;border-bottom:1px solid rgba(255,255,255,.03);display:flex;align-items:center;gap:8px;}
+.pastel-item::before{content:'';width:3px;height:3px;background:var(--gold);border-radius:50%;flex-shrink:0;opacity:.5;}
+.pastel-especial{background:var(--surface2);padding:16px;margin-top:0;border-left:3px solid var(--gold);}
+.pastel-especial-label{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.25em;color:var(--gold);text-transform:uppercase;margin-bottom:10px;}
+.pastel-especial-item{display:flex;justify-content:space-between;padding:6px 0;font-size:14px;color:var(--on-dim);border-bottom:1px solid rgba(255,255,255,.04);}
+.pastel-especial-item:last-child{border-bottom:none;}
+.pastel-especial-price{font-family:'Anton',sans-serif;font-size:20px;color:var(--gold);}
+
+/* COMBOS */
+#combos{padding:110px 0;background:var(--surface);}
+.combos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:50px;}
+.combo-card{background:rgba(65,65,65,.35);backdrop-filter:blur(12px);border:1px solid rgba(233,196,0,.2);overflow:hidden;transition:transform .3s,box-shadow .3s;}
+.combo-card:hover{transform:translateY(-6px);box-shadow:0 24px 48px rgba(0,0,0,.5),0 0 30px rgba(233,196,0,.08);}
+.combo-card.destaque{background:linear-gradient(135deg,rgba(233,196,0,.1),rgba(65,65,65,.35));border-color:var(--gold);}
+.combo-img{width:100%;height:200px;object-fit:cover;}
+.combo-body{padding:20px;}
+.combo-badge{display:inline-block;background:var(--gold-bright);color:var(--black);font-family:'Space Mono',monospace;font-size:8px;letter-spacing:.2em;padding:3px 8px;text-transform:uppercase;margin-bottom:10px;font-weight:700;}
+.combo-name{font-family:'Anton',sans-serif;font-size:22px;color:var(--gold-fixed);margin-bottom:6px;font-style:italic;}
+.combo-desc{font-size:13px;color:var(--gray-light);line-height:1.6;margin-bottom:14px;}
+.combo-footer{display:flex;justify-content:space-between;align-items:center;}
+.combo-price{font-family:'Anton',sans-serif;font-size:26px;color:var(--gold);text-shadow:var(--gold-text);display:flex;align-items:center;gap:5px;}
+.combo-price .material-symbols-outlined{font-variation-settings:'FILL' 1,'wght' 400;font-size:18px;color:var(--gold-fixed);}
+.combo-btn{background:var(--gold-bright);color:var(--black);border:none;padding:10px 18px;cursor:pointer;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:12px;letter-spacing:.1em;text-transform:uppercase;box-shadow:var(--offset);transition:transform .2s,box-shadow .2s;}
+.combo-btn:hover{transform:translate(2px,2px);box-shadow:2px 2px 0 #000;}
+
+/* DEPOIMENTOS */
+#depoimentos{padding:90px 0;background:var(--black2);}
+.depo-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:46px;}
+.depo-card{border-left:2px solid var(--gold);background:var(--surface2);padding:24px;}
+.depo-stars{display:flex;gap:4px;color:var(--gold);margin-bottom:10px;}
+.depo-stars .material-symbols-outlined{font-variation-settings:'FILL' 1,'wght' 400;font-size:16px;}
+.depo-text{font-size:14px;font-style:italic;color:var(--on-surface);line-height:1.7;margin-bottom:12px;}
+.depo-author{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.25em;color:var(--gold-fixed);text-transform:uppercase;}
+
+/* SOCIAL */
+#social{padding:90px 0;background:var(--surface);overflow:hidden;}
+.social-bg-text{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Anton',sans-serif;font-size:clamp(80px,16vw,200px);color:rgba(233,196,0,.03);white-space:nowrap;user-select:none;pointer-events:none;letter-spacing:-.05em;font-style:italic;}
+.social-content{position:relative;z-index:1;text-align:center;}
+.social-title{font-family:'Anton',sans-serif;font-size:clamp(44px,8vw,96px);line-height:.9;margin-bottom:18px;font-style:italic;}
+.social-title .outline{-webkit-text-stroke:1px rgba(255,255,255,.2);color:transparent;}
+.social-desc{font-size:clamp(13px,2vw,16px);font-weight:400;color:var(--gray-light);letter-spacing:.1em;margin-bottom:38px;}
+.btn-ig{display:inline-flex;align-items:center;gap:12px;padding:18px 46px;background:transparent;border:1px solid var(--gold);color:var(--on-surface);text-decoration:none;font-family:'Anton',sans-serif;font-size:20px;letter-spacing:.2em;text-transform:uppercase;position:relative;overflow:hidden;transition:color .3s;font-style:italic;}
+.btn-ig::before{content:'';position:absolute;inset:0;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .3s ease;z-index:-1;}
+.btn-ig:hover::before{transform:scaleX(1);}
+.btn-ig:hover{color:var(--black);box-shadow:var(--gold-glow);}
+.ig-icon{width:20px;height:20px;fill:currentColor;}
+.social-stats{display:flex;justify-content:center;gap:48px;margin-top:52px;padding-top:34px;border-top:1px solid rgba(255,255,255,.05);}
+.stat-item{text-align:center;}
+.stat-num{font-family:'Anton',sans-serif;font-size:clamp(32px,5vw,52px);color:var(--gold);text-shadow:var(--gold-text);display:block;line-height:1;}
+.stat-label{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.25em;color:var(--gray-light);text-transform:uppercase;display:block;margin-top:5px;}
+
+/* LOCAL */
+#local{padding:90px 0;background:var(--black2);}
+.local-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;margin-top:46px;}
+.local-map{width:100%;height:320px;overflow:hidden;border:2px solid var(--gold);filter:grayscale(1);transition:filter .4s;position:relative;}
+.local-map:hover{filter:grayscale(0);}
+.local-map img{width:100%;height:100%;object-fit:cover;}
+.local-map-pin{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;}
+.local-map-pin .material-symbols-outlined{font-variation-settings:'FILL' 1,'wght' 400;font-size:40px;color:var(--gold);animation:bounce 2s ease-in-out infinite;filter:drop-shadow(0 4px 8px rgba(233,196,0,.4));}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.local-info{display:flex;flex-direction:column;gap:20px;}
+.local-item{display:flex;align-items:flex-start;gap:16px;padding:20px;background:var(--surface2);border-left:2px solid var(--gold);}
+.local-item .material-symbols-outlined{color:var(--gold);flex-shrink:0;margin-top:2px;}
+.local-item-title{font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;letter-spacing:.15em;color:var(--gold-fixed);text-transform:uppercase;margin-bottom:6px;}
+.local-item-text{font-size:14px;color:var(--on-dim);line-height:1.7;}
+
+/* CTA FINAL */
+#cta-final{padding:80px 6vw;background:var(--surface);}
+.cta-box{background:var(--gold-bright);padding:64px;text-align:center;position:relative;overflow:hidden;box-shadow:8px 8px 0 #000;}
+.cta-box::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,255,255,0) 0%,rgba(255,255,255,.35) 50%,rgba(255,255,255,0) 100%);background-size:200% 100%;animation:shimmer 2.5s ease-in-out infinite;}
+@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+.cta-box h2{font-family:'Anton',sans-serif;font-size:clamp(36px,6vw,72px);color:var(--black);line-height:.95;text-transform:uppercase;margin-bottom:32px;font-style:italic;position:relative;z-index:1;}
+.btn-cta{display:inline-flex;align-items:center;gap:12px;padding:18px 46px;background:var(--black);color:var(--gold-bright);border:none;cursor:pointer;font-family:'Anton',sans-serif;font-size:22px;letter-spacing:.15em;text-transform:uppercase;font-style:italic;position:relative;z-index:1;transition:transform .2s;box-shadow:var(--offset);text-decoration:none;}
+.btn-cta:hover{transform:translate(2px,2px);box-shadow:2px 2px 0 rgba(0,0,0,.5);}
+.btn-cta .material-symbols-outlined{font-variation-settings:'FILL' 1,'wght' 400;font-size:24px;}
+
+/* FOOTER */
+footer{background:var(--black);padding:54px 0 28px;border-top:1px solid rgba(233,196,0,.08);position:relative;overflow:hidden;}
+footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);box-shadow:0 0 20px var(--gold);opacity:.22;}
+.footer-inner{max-width:1280px;margin:0 auto;padding:0 6vw;display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:40px;margin-bottom:42px;}
+.footer-logo{font-family:'Anton',sans-serif;font-size:28px;letter-spacing:.08em;color:var(--gold-fixed);margin-bottom:10px;font-style:italic;text-shadow:var(--offset);}
+.footer-logo span{color:var(--gold-bright);}
+.footer-bio{font-size:13px;color:var(--gray-light);line-height:1.7;letter-spacing:.04em;max-width:240px;margin-bottom:12px;}
+.footer-addr{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.12em;color:rgba(233,196,0,.55);line-height:1.8;text-transform:uppercase;}
+.footer-col-title{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.3em;color:var(--gold);text-transform:uppercase;margin-bottom:16px;}
+.footer-links{list-style:none;}
+.footer-links li{margin-bottom:9px;}
+.footer-links a{color:var(--gray-light);text-decoration:none;font-size:14px;letter-spacing:.05em;transition:color .2s;}
+.footer-links a:hover{color:var(--on-surface);}
+.footer-social-icons{display:flex;gap:10px;margin-top:6px;}
+.footer-social-icons a{width:36px;height:36px;border:1px solid var(--gray);display:flex;align-items:center;justify-content:center;color:var(--gray-light);text-decoration:none;transition:border-color .2s,color .2s,box-shadow .2s;}
+.footer-social-icons a:hover{border-color:var(--gold);color:var(--on-surface);box-shadow:0 0 10px rgba(233,196,0,.3);}
+.footer-bottom{max-width:1280px;margin:0 auto;padding:20px 6vw 0;border-top:1px solid rgba(255,255,255,.04);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+.footer-copy{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.2em;color:rgba(255,255,255,.2);text-transform:uppercase;}
+.footer-made{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.15em;color:rgba(255,255,255,.15);text-transform:uppercase;}
+.footer-made span{color:var(--gold);}
+
+/* BOTTOM NAV */
+#bottom-nav{display:none;position:fixed;bottom:0;left:0;width:100%;z-index:1100;background:var(--surface5);border-top:2px solid rgba(233,196,0,.25);justify-content:space-around;align-items:flex-end;padding-bottom:12px;padding-top:8px;border-radius:16px 16px 0 0;}
+#bottom-nav a{display:flex;flex-direction:column;align-items:center;gap:2px;text-decoration:none;color:var(--gray-light);transition:color .2s;padding:4px 8px;}
+#bottom-nav a.active{color:var(--black);background:var(--gold-bright);border-radius:50px;padding:6px 18px;margin-bottom:6px;box-shadow:4px 4px 0 #000;}
+#bottom-nav a span.material-symbols-outlined{font-size:22px;}
+#bottom-nav a .nav-label{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.15em;text-transform:uppercase;}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .nav-links,.nav-ig{display:none;}
+  .nav-ham{display:flex;}
+  .sobre-grid{grid-template-columns:1fr;gap:36px;}
+  .sobre-visual{display:none;}
+  .cards-row{grid-template-columns:1fr 1fr;}
+  .acai-grid{grid-template-columns:1fr;}
+  .opcionais{grid-template-columns:1fr 1fr;}
+  .burger-grid{grid-template-columns:1fr;}
+  .pastel-grid{grid-template-columns:1fr;}
+  .combos-grid{grid-template-columns:1fr;}
+  .depo-grid{grid-template-columns:1fr;}
+  .local-grid{grid-template-columns:1fr;}
+  .footer-inner{grid-template-columns:1fr;}
+  .social-stats{gap:28px;}
+  .hero-ctas{flex-direction:column;width:fit-content;}
+  .cta-box{padding:36px 24px;}
+  #bottom-nav{display:flex;}
+  body{padding-bottom:80px;}
+}
+@media(max-width:600px){
+  .cards-row{grid-template-columns:1fr;}
+  .opcionais{grid-template-columns:1fr;}
+  nav#nav{padding:14px 18px;}
+  .section-inner{padding:0 5vw;}
+  #hero{padding:0;}
+}
+</style>
+  
+  <!-- Structured data (Local business) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FoodEstablishment",
+    "name": "Point dos Malokas",
+    "image": "/image.png",
+    "@id": "https://pointdosmalokas.com/",
+    "url": "https://pointdosmalokas.com/",
+    "telephone": "+55 11 98765-4321",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Rua Esperantinópolis, 346",
+      "addressLocality": "São Paulo",
+      "postalCode": "03561-100",
+      "addressCountry": "BR"
+    },
+    "openingHours": ["Tu-Su 18:00-04:00"],
+    "sameAs": ["https://www.instagram.com/pointdosmalokas/"]
+  }
+  </script>
+</head>
+<body>
+
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+<canvas id="particles-canvas"></canvas>
+
+<!-- MOBILE NAV -->
+<div id="mobile-nav">
+  <button id="close-nav">✕</button>
+  <a href="#sobre"    onclick="closeMobileNav()">Sobre</a>
+  <a href="#cardapio" onclick="closeMobileNav()">Cardápio</a>
+  <a href="#combos"   onclick="closeMobileNav()">Combos</a>
+  <a href="#social"   onclick="closeMobileNav()">Instagram</a>
+</div>
+
+<!-- SPLASH -->
+<div id="splash">
+  <div id="splash-bg"></div>
+  <div class="smoke-wrap">
+    <div class="smoke"></div><div class="smoke"></div><div class="smoke"></div>
+  </div>
+  <div id="splash-content">
+    <div class="splash-tag">Comida &amp; Bebida · São Paulo</div>
+    <div class="splash-logo">POINT DOS<br>MALOKAS</div>
+    <div class="splash-sub2">Açaí · Hambúrguer de Picanha · Pastel de Feira</div>
+    <div class="splash-addr">Rua Esperantinópolis, 346 — SP</div>
+    <div class="loader-wrap">
+      <div class="loader-label"><span>Carregando o point</span><span class="loader-pct" id="pct">0%</span></div>
+      <div class="loader-bar"><div class="loader-fill"></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="nav-logo">Point<span>.</span>Malokas</a>
+  <ul class="nav-links">
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#cardapio">Cardápio</a></li>
+    <li><a href="#combos">Combos</a></li>
+    <li><a href="#social">Instagram</a></li>
+  </ul>
+  <a href="https://www.instagram.com/pointdosmalokas/" target="_blank" rel="noopener" class="nav-ig">@pointdosmalokas</a>
+  <div class="nav-ham" id="ham-btn"><span></span><span></span><span></span></div>
+</nav>
+
+<!-- TICKER removed per request -->
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg-img">
+    <img src="image.png" alt="Point dos Malokas hero"/>
+  </div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Espaço Urbano · Est. São Paulo</div>
+    <h1 class="hero-title">POINT<br>DOS<br><span class="gold">MALOKAS</span></h1>
+    <p class="hero-desc">Um espaço urbano de atitude e união — onde a cultura da rua, identidade e estilo se encontram.</p>
+    <div class="hero-address">
+      <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+      Rua Esperantinópolis 346, São Paulo – SP
+    </div>
+    <div class="hero-ctas">
+      <a href="#cardapio" class="btn-primary">Ver Cardápio</a>
+      <a href="https://www.instagram.com/pointdosmalokas/" target="_blank" rel="noopener" class="btn-secondary">Seguir no Instagram →</a>
+    </div>
+  </div>
+  <div class="hero-scroll"><span>Scroll</span><div class="scroll-line"></div></div>
+</section>
+
+<!-- SOBRE -->
+<section id="sobre">
+  <div class="section-inner">
+    <div class="sobre-grid">
+      <div class="sobre-visual reveal reveal-left">
+        <div class="sobre-accent"></div>
+        <div class="sobre-box">
+          <div class="sobre-corner"></div><div class="sobre-corner2"></div>
+          <div class="sobre-box-inner"><div class="sobre-box-big">PDM</div></div>
+        </div>
+      </div>
+      <div class="sobre-text reveal reveal-right">
+        <div class="section-label">Quem somos</div>
+        <h2 class="section-title">O POINT<br>DA QUEBRADA</h2>
+        <p>O <strong>Point dos Malokas</strong> é um espaço urbano de atitude e união — onde a cultura da rua, identidade e estilo se encontram em um só lugar.</p>
+        <p>Da <strong>caipirinha premium</strong> ao hambúrguer de picanha artesanal, passando pelo açaí trufado e o pastel de feira quentinho. Tudo com amor pela quebrada.</p>
+        <p>Localizado na <strong>Rua Esperantinópolis 346, São Paulo</strong>. Vem pro Point!</p>
+        <div class="cards-row">
+          <div class="card"><div class="card-num">303</div><div class="card-title">Seguidores</div><div class="card-text">Crescendo toda semana no IG</div></div>
+          <div class="card"><div class="card-num">41</div><div class="card-title">Posts</div><div class="card-text">Fotos e vídeos do cardápio real</div></div>
+          <div class="card"><div class="card-num">100%</div><div class="card-title">Autêntico</div><div class="card-text">Sabor de verdade, sem frescura</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CARDÁPIO -->
+<section id="cardapio">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-label">O que temos</div>
+      <h2 class="section-title">CARDÁPIO<br><span style="color:var(--gold)">COMPLETO</span></h2>
+    </div>
+    <div class="menu-tabs">
+      <div class="menu-tab active" data-tab="acai">🍇 Açaí</div>
+      <div class="menu-tab" data-tab="burger">🍔 Hambúrguer</div>
+      <div class="menu-tab" data-tab="pastel">🥟 Pastel de Feira</div>
+    </div>
+
+    <div class="menu-panel active reveal" id="tab-acai">
+      <div class="acai-grid">
+        <div class="acai-card">
+          <div class="acai-name">Açaí <span>Tradicional</span></div>
+          <span class="acai-sub">Açaí · Cupuaçu · Sorvete</span>
+          <div class="price-row">
+            <div class="price-pill"><div class="price-ml">300ml</div><div class="price-val">R$8</div></div>
+            <div class="price-pill"><div class="price-ml">400ml</div><div class="price-val">R$10</div></div>
+            <div class="price-pill"><div class="price-ml">500ml</div><div class="price-val">R$12</div></div>
+            <div class="price-pill"><div class="price-ml">700ml</div><div class="price-val">R$15</div></div>
+          </div>
+        </div>
+        <div class="acai-card">
+          <div class="acai-name">Açaí <span>Trufado</span></div>
+          <span class="acai-sub">Premium · Com cobertura especial</span>
+          <div class="price-row">
+            <div class="price-pill"><div class="price-ml">300ml</div><div class="price-val">R$11</div></div>
+            <div class="price-pill"><div class="price-ml">400ml</div><div class="price-val">R$13</div></div>
+            <div class="price-pill"><div class="price-ml">500ml</div><div class="price-val">R$15</div></div>
+            <div class="price-pill"><div class="price-ml">700ml</div><div class="price-val">R$18</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="vitaminas">
+        <h4>Vitaminas <span>500ml</span></h4>
+        <div class="vit-row"><span class="vit-name">Açaí c/ Banana</span><span class="vit-price">R$12</span></div>
+        <div class="vit-row"><span class="vit-name">Açaí c/ Morango</span><span class="vit-price">R$12</span></div>
+        <div class="vit-row"><span class="vit-name">Açaí c/ Banana &amp; Morango</span><span class="vit-price">R$13</span></div>
+      </div>
+      <div class="opcionais">
+        <div class="opc-group"><div class="opc-title">Gelado</div><div class="opc-item">Açaí<br>Cupuaçu<br>Mangaba<br>Flocos<br>Sensação<br>Chocolate<br>Morango<br>Maracujá</div></div>
+        <div class="opc-group"><div class="opc-title">Acompanhamentos</div><div class="opc-item">Confetti<br>Paçoca<br>Granola<br>Amendoim<br>Sucrilhos<br>Chocoboll<br>Gotas de Choc.<br>Bolinha P&amp;B<br>Ovomaltine</div></div>
+        <div class="opc-group"><div class="opc-title">Frutas</div><div class="opc-item">Morango<br>Banana<br>Abacaxi<br>Kiwi</div></div>
+        <div class="opc-group"><div class="opc-title">Coberturas</div><div class="opc-item">Morango<br>Leite Condensado<br>Maracujá<br>Limão<br>Chocolate<br>Caramelo</div></div>
+      </div>
+      <div class="extras">
+        <h4>Adicionais Extras</h4>
+        <div class="extra-row"><span class="extra-name">Bis</span><span class="extra-price">+R$3</span></div>
+        <div class="extra-row"><span class="extra-name">01 Camada de Nutella</span><span class="extra-price">+R$5</span></div>
+        <div class="extra-row"><span class="extra-name">03 Camadas de Morango</span><span class="extra-price">+R$3</span></div>
+      </div>
+    </div>
+
+    <div class="menu-panel reveal" id="tab-burger">
+      <div class="burger-header">🔥 Hambúrguer de Picanha 90g — Artesanal</div>
+      <div class="burger-grid">
+        <div class="burger-item"><div class="burger-info"><div class="burger-name">X Burger Maloka</div><div class="burger-desc">Pão de hambúrguer, queijo prato, hambúrguer 90g, maionese</div></div><div class="burger-price">R$12</div></div>
+        <div class="burger-item"><div class="burger-info"><div class="burger-name">Big Burger Maloka</div><div class="burger-desc">Pão, queijo prato, 02 hambúrgueres 90g, maionese</div></div><div class="burger-price">R$16</div></div>
+        <div class="burger-item"><div class="burger-info"><div class="burger-name">X Salada Maloka</div><div class="burger-desc">Pão, queijo prato, tomate, alface, hambúrguer, maionese</div></div><div class="burger-price">R$13</div></div>
+        <div class="burger-item"><div class="burger-info"><div class="burger-name">X Egg Maloka</div><div class="burger-desc">Pão, queijo prato, alface, tomate, hambúrguer, maionese e ovo</div></div><div class="burger-price">R$14</div></div>
+        <div class="burger-item"><div class="burger-info"><div class="burger-name">X Cheddar Maloka</div><div class="burger-desc">Pão, queijo prato, cheddar, hambúrguer, maionese</div></div><div class="burger-price">R$16</div></div>
+        <div class="burger-item"><div class="burger-info"><div class="burger-name">X Catupiry Maloka</div><div class="burger-desc">Pão, queijo prato, catupiry, hambúrguer, maionese</div></div><div class="burger-price">R$16</div></div>
+        <div class="burger-item"><div class="burger-info"><div class="burger-name">X Bacon Maloka</div><div class="burger-desc">Pão, queijo prato, alface, tomate, hambúrguer, bacon, maionese</div></div><div class="burger-price">R$16</div></div>
+        <div class="burger-item"><div class="burger-info"><div class="burger-name">X Calabresa Maloka</div><div class="burger-desc">Pão, queijo prato, alface, tomate, hambúrguer, maionese e calabresa</div></div><div class="burger-price">R$16</div></div>
+        <div class="burger-item"><div class="burger-info"><div class="burger-name">X Egg Bacon Maloka</div><div class="burger-desc">Pão, queijo prato, alface, tomate, hambúrguer, maionese, ovo e bacon</div></div><div class="burger-price">R$18</div></div>
+        <div class="burger-item burger-destaque"><div class="burger-info"><div class="burger-name">X Tudo Maloka 🔥</div><div class="burger-desc">Pão, 2 queijos, tomate, alface, 2 hambúrgueres, maionese — O rei da casa</div></div><div class="burger-price">R$22</div></div>
+      </div>
+    </div>
+
+    <div class="menu-panel reveal" id="tab-pastel">
+      <div class="pastel-grid">
+        <div>
+          <div class="pastel-category">Pastel de Carne <span class="pastel-price-tag">R$10</span></div>
+          <div class="pastel-list">
+            <div class="pastel-item">Pastel de Carne</div>
+            <div class="pastel-item">Pastel de Carne c/ Queijo</div>
+            <div class="pastel-item">Pastel de Carne c/ Cheddar</div>
+            <div class="pastel-item">Pastel de Carne c/ Ovo</div>
+            <div class="pastel-item">Pastel de Carne c/ Bacon</div>
+          </div>
+          <div class="pastel-category" style="margin-top:20px">Pastel de Frango <span class="pastel-price-tag">R$10</span></div>
+          <div class="pastel-list">
+            <div class="pastel-item">Pastel de Frango</div>
+            <div class="pastel-item">Pastel de Frango c/ Catupiry</div>
+            <div class="pastel-item">Pastel de Frango c/ Cheddar</div>
+            <div class="pastel-item">Pastel de Frango c/ Queijo</div>
+          </div>
+          <div class="pastel-category" style="margin-top:20px">Carne Seca <span class="pastel-price-tag">R$15</span></div>
+          <div class="pastel-list">
+            <div class="pastel-item">Pastel de Carne Seca</div>
+            <div class="pastel-item">Pastel de Carne Seca c/ Queijo</div>
+            <div class="pastel-item">Pastel de Carne Seca c/ Catupiry</div>
+            <div class="pastel-item">Pastel de Camarão c/ Catupiry</div>
+          </div>
+        </div>
+        <div>
+          <div class="pastel-category">Outros Sabores <span class="pastel-price-tag">R$10</span></div>
+          <div class="pastel-list">
+            <div class="pastel-item">Pastel de Queijo c/ Milho</div>
+            <div class="pastel-item">Pastel 3 Queijos</div>
+            <div class="pastel-item">Pastel de Bauru</div>
+            <div class="pastel-item">Pastel de Portuguesa</div>
+            <div class="pastel-item">Pastel de Pizza</div>
+            <div class="pastel-item">Pastel de Atum</div>
+            <div class="pastel-item">Pastel de Bacon c/ Queijo</div>
+            <div class="pastel-item">Pastel de Palmito c/ Queijo</div>
+            <div class="pastel-item">Pastel de Calabresa</div>
+            <div class="pastel-item">Pastel de Calabresa c/ Queijo</div>
+            <div class="pastel-item">Pastel de Calabresa c/ Catupiry</div>
+          </div>
+          <div class="pastel-especial" style="margin-top:20px">
+            <div class="pastel-especial-label">⭐ Pastel Especial</div>
+            <div class="pastel-especial-item"><span>Pastel Especial de Carne</span><span class="pastel-especial-price">R$20</span></div>
+            <div class="pastel-especial-item"><span>Pastel Especial de Frango</span><span class="pastel-especial-price">R$20</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMBOS -->
+<section id="combos">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-label">Seleção especial</div>
+      <h2 class="section-title">COMBOS<br><span style="color:var(--gold)">DE ELITE</span></h2>
+    </div>
+    <div class="combos-grid">
+      <div class="combo-card reveal">
+        <img class="combo-img" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC19aVw-aXkLdhnlKI66VC-FsUQ7qrcnZI8vyZVOiSotgd4FZVhyhpwnddELSlDz0yv1Qvh_VMg3XaLFoqp3e9M4sLu8UGJWk_TSrhVFdHlDSDzzPursbMD-UkDZ2FCxcEZ7FRF2Pi7dImYSEX2W4V90FbeK3_-kVokLpQvOdiHKlP3SixlA2b2BFRHNivjwKfLA84OJfxsj11RzPCrpzZlYTUpUlWnDhG1S-6uWOwAweTXTKmmhpPDSZPvWO4jj5z5f04yWPgp8mk" alt="Black Label"/>
+        <div class="combo-body">
+          <span class="combo-badge">Elite</span>
+          <div class="combo-name">Combo Black Label</div>
+          <div class="combo-desc">Whisky Original + 4 Gelo de Coco + 4 Red Bull. Para quem sabe o que quer.</div>
+          <div class="combo-footer">
+            <div class="combo-price"><span class="material-symbols-outlined">paid</span>349,90</div>
+            <button class="combo-btn">Pegar</button>
+          </div>
+        </div>
+      </div>
+      <div class="combo-card reveal">
+        <img class="combo-img" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpj8E7fc-MaowAXKWpcYMjdp7LtBlpBiLzUIncoOk1BpQx096D6hXhq3fbOEJ_3zIiQfLDIpOtZD_f2x1ZjbKCcsuVT3uqq5QLotyiVnu-oDaYt0UTdFsnFbRSJqQeODG7Ge1-ZSZZIVtAd90R6IzYzdqW0-x97DTGFBDFUApS6U_zGE41OkZkq8uIRMeIoiy_4Gwh-8MAq0HKb002FtYlhxIzzjZ4W1TqOVmUfSy0WAL2mHtBgEWZPasUwcc2u_OO0MfjteyJuQ8" alt="Gin Tanqueray"/>
+        <div class="combo-body">
+          <span class="combo-badge">VIP</span>
+          <div class="combo-name">Gin Tanqueray VIP</div>
+          <div class="combo-desc">Tanqueray + Tônica + Botânicos Especiais. Sofisticação da quebrada.</div>
+          <div class="combo-footer">
+            <div class="combo-price"><span class="material-symbols-outlined">paid</span>289,00</div>
+            <button class="combo-btn">Pegar</button>
+          </div>
+        </div>
+      </div>
+      <div class="combo-card destaque reveal">
+        <img class="combo-img" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCS4HKgC9_cIn9GKdb4xxIGJQRefar7Gl3ZTu36pC6ZFIJB4wu1yx6nUBA1O3sGjAh7kJ4mMmduAjU7K4eytx78Qx0rXlRCbLbtTnkimpMily-P9Lib56MkJNTRCEJnYIS13aDJATPIx_5mbsGqK4U16PI1G9BUzJWqECmXiSfcwlgKhZbLTq6O2i7Q1qYmLD9de0gGabhwWJHxBbpG1hoKuC8DgV1HWKufuHMTQ_XFz-Zeg0pniu-0uo_dkimMGvx4g_VrhhZXynA" alt="Açaí Gigante"/>
+        <div class="combo-body">
+          <span class="combo-badge" style="background:var(--black);color:var(--gold)">🔥 Destaque</span>
+          <div class="combo-name">Açaí do Maloka Gigante</div>
+          <div class="combo-desc">1 Litro de pura energia com tudo que você tem direito. O cofre líquido.</div>
+          <div class="combo-footer">
+            <div class="combo-price"><span class="material-symbols-outlined">paid</span>55,00</div>
+            <button class="combo-btn">Pegar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section id="depoimentos">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-label">O que falam</div>
+      <h2 class="section-title">VISÃO DA<br><span style="color:var(--gold)">COMUNIDADE</span></h2>
+    </div>
+    <div class="depo-grid">
+      <div class="depo-card reveal">
+        <div class="depo-stars">
+          <span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span>
+          <span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span>
+          <span class="material-symbols-outlined">star</span>
+        </div>
+        <p class="depo-text">"Melhor lugar pra quem gosta de ostentar com responsabilidade. O combo vem gelado e o atendimento é de patrão."</p>
+        <p class="depo-author">— @MC_RELIKIA</p>
+      </div>
+      <div class="depo-card reveal">
+        <div class="depo-stars">
+          <span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span>
+          <span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span>
+          <span class="material-symbols-outlined">star</span>
+        </div>
+        <p class="depo-text">"Onde a gente se sente em casa, mas com o luxo que a gente merece. O Point é brabo demais!"</p>
+        <p class="depo-author">— DRI DA VILA</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL -->
+<section id="social">
+  <div class="section-inner">
+    <div style="position:relative">
+      <div class="social-bg-text">INSTAGRAM</div>
+      <div class="social-content reveal">
+        <div class="section-label" style="justify-content:center">Nos siga</div>
+        <h2 class="social-title">VEM PRO<br><span class="outline">POINT</span></h2>
+        <p class="social-desc">Segue o Instagram — lançamentos, promoções e muito conteúdo da quebrada</p>
+        <a href="https://www.instagram.com/pointdosmalokas/" target="_blank" rel="noopener" class="btn-ig">
+          <svg class="ig-icon" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          @pointdosmalokas
+        </a>
+        <div class="social-stats">
+          <div class="stat-item"><span class="stat-num" data-target="303">0</span><span class="stat-label">Seguidores</span></div>
+          <div class="stat-item"><span class="stat-num" data-target="41">0</span><span class="stat-label">Posts</span></div>
+          <div class="stat-item"><span class="stat-num" data-target="363">0</span><span class="stat-label">Seguindo</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCAL -->
+<section id="local">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-label">Onde estamos</div>
+      <h2 class="section-title">ONDE ENCONTRAR<br><span style="color:var(--gold)">O OURO</span></h2>
+    </div>
+    <div class="local-grid">
+      <div class="local-map reveal reveal-left">
+        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBglqbuzbVd6eSaYms6UV0oi5u-et63YZ2cJOovyInAJl3DsCPYv4NcVA6KodJbslGsYgmU8jdvciD3_G0x_FIEvThEhG9KfH6-rUugpSo9zBc5vbpPuyGKcbCWMho1ZZF2Nv7dMqJ2GFx1P-F5sDkTg2Ihy3nb7vMYhCNFQFucNWTab1f4qVvIYZObJ7XmXSnaVKblNVkoL_g1EDIEIAsS-xFaXwoPirSwEsXQghJbyuJf3OkLkrOe_3wgtJNzNiC9GIfHe2xnhkY" alt="Mapa"/>
+        <div class="local-map-pin"><span class="material-symbols-outlined">location_on</span></div>
+      </div>
+      <div class="local-info reveal reveal-right">
+        <div class="local-item">
+          <span class="material-symbols-outlined">schedule</span>
+          <div><div class="local-item-title">Horário</div><div class="local-item-text">Terça a Domingo: 18h às 04h<br>Segunda: O Descanso do Guerreiro</div></div>
+        </div>
+        <div class="local-item">
+          <span class="material-symbols-outlined">location_on</span>
+          <div><div class="local-item-title">Endereço</div><div class="local-item-text">Rua Esperantinópolis, 346<br>São Paulo, SP – CEP 03561-100</div></div>
+        </div>
+        <div class="local-item">
+          <span class="material-symbols-outlined">phone_iphone</span>
+          <div><div class="local-item-title">Contato VIP</div><div class="local-item-text">(11) 98765-4321 · @pointdosmalokas</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section id="cta-final">
+  <div class="cta-box reveal">
+    <h2>PRONTO PARA<br>O PRÓXIMO NÍVEL?</h2>
+    <a href="#cardapio" class="btn-cta">
+      <span class="material-symbols-outlined">shopping_bag</span>
+      VER CARDÁPIO
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">Point<span>.</span>Malokas</div>
+      <p class="footer-bio">Um espaço urbano de atitude e união. O ouro é líquido aqui na quebrada.</p>
+      <div class="footer-addr">Rua Esperantinópolis, 346<br>São Paulo, Brazil 03561-100</div>
+    </div>
+    <div>
+      <div class="footer-col-title">Navegação</div>
+      <ul class="footer-links">
+        <li><a href="#hero">Início</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#cardapio">Cardápio</a></li>
+        <li><a href="#combos">Combos</a></li>
+        <li><a href="#social">Instagram</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Redes Sociais</div>
+      <div class="footer-social-icons">
+        <a href="https://www.instagram.com/pointdosmalokas/" target="_blank" rel="noopener">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2024 Point dos Malokas — Todos os direitos reservados</div>
+    <div class="footer-made">Feito com <span>♥</span> pela quebrada</div>
+  </div>
+</footer>
+
+<!-- BOTTOM NAV -->
+<nav id="bottom-nav">
+  <a href="#hero" class="active">
+    <span class="material-symbols-outlined">home</span>
+    <span class="nav-label">Início</span>
+  </a>
+  <a href="#cardapio">
+    <span class="material-symbols-outlined">restaurant_menu</span>
+    <span class="nav-label">Menu</span>
+  </a>
+  <a href="#combos">
+    <span class="material-symbols-outlined">liquor</span>
+    <span class="nav-label">Combos</span>
+  </a>
+  <a href="https://www.instagram.com/pointdosmalokas/" target="_blank">
+    <span class="material-symbols-outlined">photo_camera</span>
+    <span class="nav-label">Insta</span>
+  </a>
+</nav>
+
+<!-- ═══════════════════════════════
+     JS COMPLETO (adaptado do Site A)
+═══════════════════════════════ -->
+<script>
+/* ─── CURSOR ─── */
+const cursor=document.getElementById('cursor'),cursorRing=document.getElementById('cursor-ring');
+let mx=-100,my=-100,rx=-100,ry=-100;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
+(function animCursor(){
+  rx+=(mx-rx)*.12; ry+=(my-ry)*.12;
+  cursor.style.left=mx+'px'; cursor.style.top=my+'px';
+  cursorRing.style.left=rx+'px'; cursorRing.style.top=ry+'px';
+  requestAnimationFrame(animCursor);
+})();
+document.querySelectorAll('a,button,.menu-tab,.card,.burger-item,.combo-card,.price-pill').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cursor.style.width='20px';cursor.style.height='20px';cursorRing.style.width='52px';cursorRing.style.height='52px';cursorRing.style.opacity='1';});
+  el.addEventListener('mouseleave',()=>{cursor.style.width='12px';cursor.style.height='12px';cursorRing.style.width='36px';cursorRing.style.height='36px';cursorRing.style.opacity='.5';});
+});
+
+/* ─── SPLASH ─── */
+(function(){
+  const splash=document.getElementById('splash'),pct=document.getElementById('pct');
+  let p=0;
+  const iv=setInterval(()=>{
+    p=Math.min(p+Math.random()*4,100);
+    pct.textContent=Math.floor(p)+'%';
+    if(p>=100){
+      clearInterval(iv);
+      setTimeout(()=>{
+        splash.classList.add('exit');
+        splash.addEventListener('animationend',()=>splash.remove(),{once:true});
+      },400);
+    }
+  },60);
+})();
+
+/* ─── PARTICLES ─── */
+(function(){
+  const canvas=document.getElementById('particles-canvas'),ctx=canvas.getContext('2d');
+  let W,H;
+  function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight;}
+  resize(); window.addEventListener('resize',resize);
+  const pts=Array.from({length:70},()=>({
+    x:Math.random()*window.innerWidth, y:Math.random()*window.innerHeight,
+    vx:(Math.random()-.5)*.35, vy:(Math.random()-.5)*.35,
+    r:Math.random()*1.4+.4, a:Math.random()*.5+.15
+  }));
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    pts.forEach(p=>{
+      p.x+=p.vx; p.y+=p.vy;
+      if(p.x<0)p.x=W; if(p.x>W)p.x=0;
+      if(p.y<0)p.y=H; if(p.y>H)p.y=0;
+      ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fillStyle=`rgba(233,196,0,${p.a})`; ctx.fill();
+    });
+    pts.forEach((a,i)=>pts.slice(i+1).forEach(b=>{
+      const d=Math.hypot(a.x-b.x,a.y-b.y);
+      if(d<120){
+        ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y);
+        ctx.strokeStyle=`rgba(233,196,0,${.08*(1-d/120)})`; ctx.lineWidth=.5; ctx.stroke();
+      }
+    }));
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+/* ─── NAV SCROLL ─── */
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>60));
+
+/* ─── MOBILE NAV ─── */
+document.getElementById('ham-btn').addEventListener('click',()=>document.getElementById('mobile-nav').classList.add('open'));
+document.getElementById('close-nav').addEventListener('click',()=>document.getElementById('mobile-nav').classList.remove('open'));
+function closeMobileNav(){document.getElementById('mobile-nav').classList.remove('open');}
+
+/* ─── TICKER ─── */
+(function(){
+  const items=['🍇 Açaí Trufado','🍔 X Tudo Maloka','🥟 Pastel de Carne Seca',
+    '🥃 Combo Black Label','⭐ Pastel Especial','🔥 Hambúrguer de Picanha 90g',
+    '💛 Point dos Malokas','🏆 Açaí Gigante 1L','🎯 Rua Esperantinópolis 346'];
+  const track=document.getElementById('ticker');
+  track.innerHTML=[...items,...items].map(it=>`<div class="ticker-item">${it}<div class="ticker-dot"></div></div>`).join('');
+})();
+
+/* ─── MENU TABS ─── */
+document.querySelectorAll('.menu-tab').forEach(tab=>{
+  tab.addEventListener('click',()=>{
+    document.querySelectorAll('.menu-tab').forEach(t=>t.classList.remove('active'));
+    document.querySelectorAll('.menu-panel').forEach(p=>p.classList.remove('active'));
+    tab.classList.add('active');
+    const panel=document.getElementById('tab-'+tab.dataset.tab);
+    if(panel){
+      panel.classList.add('active');
+      panel.querySelectorAll('.reveal').forEach(el=>{
+        el.classList.remove('visible');
+        setTimeout(()=>el.classList.add('visible'),80);
+      });
+    }
+  });
+});
+
+/* ─── SCROLL REVEAL ─── */
+(function(){
+  const io=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});
+  },{threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+})();
+
+/* ─── COUNTER ANIMATION ─── */
+(function(){
+  const io=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(!e.isIntersecting)return;
+      const el=e.target,target=parseInt(el.dataset.target);
+      let cur=0; const step=target/60;
+      const iv=setInterval(()=>{
+        cur=Math.min(cur+step,target);
+        el.textContent=Math.floor(cur);
+        if(cur>=target)clearInterval(iv);
+      },24);
+      io.unobserve(el);
+    });
+  },{threshold:0.5});
+  document.querySelectorAll('.stat-num[data-target]').forEach(el=>io.observe(el));
+})();
+
+/* ─── BOTTOM NAV ACTIVE ─── */
+(function(){
+  const links=document.querySelectorAll('#bottom-nav a');
+  const sections=['hero','cardapio','combos','social','local'];
+  window.addEventListener('scroll',()=>{
+    let current='';
+    sections.forEach(id=>{const s=document.getElementById(id);if(s&&window.scrollY>=s.offsetTop-200)current=id;});
+    links.forEach(a=>{
+      const href=(a.getAttribute('href')||'').replace('#','');
+      a.classList.toggle('active',href===current&&!a.href.includes('instagram'));
+    });
+  });
+})();
+
+/* ─── SMOOTH ANCHOR ─── */
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});}
+  });
+});
+</script>
+</body>
+</html>
