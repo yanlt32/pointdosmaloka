@@ -1,33 +1,45 @@
+/* ─── SCROLL RESET ─── */
+if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+window.scrollTo(0,0);
+window.addEventListener('beforeunload', ()=> window.scrollTo(0,0));
+
 /* ─── CURSOR ─── */
 const cursor=document.getElementById('cursor'),cursorRing=document.getElementById('cursor-ring');
 let mx=-100,my=-100,rx=-100,ry=-100;
-document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
-(function animCursor(){
-  rx+=(mx-rx)*.12; ry+=(my-ry)*.12;
-  cursor.style.left=mx+'px'; cursor.style.top=my+'px';
-  cursorRing.style.left=rx+'px'; cursorRing.style.top=ry+'px';
-  requestAnimationFrame(animCursor);
-})();
-document.querySelectorAll('a,button,.menu-tab,.card,.burger-item,.combo-card,.price-pill').forEach(el=>{
-  el.addEventListener('mouseenter',()=>{cursor.style.width='20px';cursor.style.height='20px';cursorRing.style.width='52px';cursorRing.style.height='52px';cursorRing.style.opacity='1';});
-  el.addEventListener('mouseleave',()=>{cursor.style.width='12px';cursor.style.height='12px';cursorRing.style.width='36px';cursorRing.style.height='36px';cursorRing.style.opacity='.5';});
-});
+const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0 || window.innerWidth <= 900;
+if(isTouchDevice){
+  document.body.style.cursor='auto';
+  cursor.style.display='none';
+  cursorRing.style.display='none';
+} else {
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
+  (function animCursor(){
+    rx+=(mx-rx)*.12; ry+=(my-ry)*.12;
+    cursor.style.left=mx+'px'; cursor.style.top=my+'px';
+    cursorRing.style.left=rx+'px'; cursorRing.style.top=ry+'px';
+    requestAnimationFrame(animCursor);
+  })();
+  document.querySelectorAll('a,button,.menu-tab,.card,.burger-item,.combo-card,.price-pill').forEach(el=>{
+    el.addEventListener('mouseenter',()=>{cursor.style.width='20px';cursor.style.height='20px';cursorRing.style.width='52px';cursorRing.style.height='52px';cursorRing.style.opacity='1';});
+    el.addEventListener('mouseleave',()=>{cursor.style.width='12px';cursor.style.height='12px';cursorRing.style.width='36px';cursorRing.style.height='36px';cursorRing.style.opacity='.5';});
+  });
+}
 
 /* ─── SPLASH ─── */
 (function(){
   const splash=document.getElementById('splash'),pct=document.getElementById('pct');
   let p=0;
   const iv=setInterval(()=>{
-    p=Math.min(p+Math.random()*4,100);
+    p=Math.min(p+Math.random()*3+1,100);
     pct.textContent=Math.floor(p)+'%';
     if(p>=100){
       clearInterval(iv);
       setTimeout(()=>{
         splash.classList.add('exit');
         splash.addEventListener('animationend',()=>splash.remove(),{once:true});
-      },400);
+      },520);
     }
-  },60);
+  },80);
 })();
 
 /* ─── PARTICLES ─── */
